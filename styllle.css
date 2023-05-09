@@ -1,0 +1,50 @@
+body{
+    padding: 0;
+    margin: 0;
+   
+}
+.body{
+    margin: auto;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  
+}
+.boutonss{
+    display: flex;
+    margin-left: 500px; 
+}
+#bouton{
+    margin: 10px;
+}
+.tab{
+    margin: auto;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+h5{
+    text-align: center;
+}
+.table_petitD,.table_diner,.table_dejener{
+    margin: 20px;
+}
+td,th{
+    text-align: center;
+}
+#formulaire{
+    margin: auto;
+    height: 500px;
+    width: 400px;
+    background-color: rgb(228, 176, 64);
+}
+form{
+    text-align: center;
+    align-items: center;
+    
+}
+.choix{
+    background-color: black !important;
+}
