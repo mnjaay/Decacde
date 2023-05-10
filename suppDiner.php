@@ -19,12 +19,12 @@ $connexion = null; //Supprimer toutes les connexion antereireur
     echo "Erreur"+$e->getMessage();
    }
 
-   if(isset( $_GET['id_PetDej']))
+   if(isset( $_GET['id_diner']))
 {
-    $get_id_PetDej = $_GET['id_PetDej'];
+    $get_id_Din = $_GET['id_diner'];
  
      //la requete
-      $sql = "DELETE from petidej where id_PetDej=$get_id_PetDej";
+      $sql = "DELETE from diner where id_diner=$get_id_Din";
       $statement = $connexion-> query($sql);
       $statement->execute();
 

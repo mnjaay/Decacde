@@ -14,13 +14,18 @@
 <nav class="navbar bg-body-tertiary">
   <div id="entete" class="container-fluid">
     <a class="navbar-brand" href="#">
-        
-        <img src="pPlQ_khM_400x400-removebg-preview.png" alt="Logo" width="60" height="54" class="d-inline-block align-text-top">
-        
-        
-        <p id="titre">Gestion de DECADE</p>
-       
+    <div>
+    <div>
+    <img src="pPlQ_khM_400x400-removebg-preview.png" alt="Logo" width="70" height="60" class="d-inline-block align-text-top">
+      </div>  
+      <div>
+      <p style="font-size: 27px;">Gestion de DECADE</p>
+      </div>  
+
+    </div>  
     
+      
+        
     </a>
   </div>
 </nav>

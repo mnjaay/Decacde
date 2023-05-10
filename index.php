@@ -20,23 +20,23 @@ $connexion = null; //Supprimer toutes les connexion antereireur
      //la requete
      $sql = "select * from petidej order by date desc limit 10";
      ///preparation de la requete les donnees sur le Petit dej
-     $statement = $connexion-> query($sql);
+     $statement1 = $connexion-> query($sql);
      ///execution 
-     $resultat = $statement->fetchAll(PDO::FETCH_ASSOC);
+     $resultat = $statement1->fetchAll(PDO::FETCH_ASSOC);
 
       //la requete pour recuperer les donner sur le dejener
       $sql1 = "select * from dej  order by date desc limit 10";
       ///preparation de la requete
-      $statement = $connexion-> query($sql1);
+      $statement2 = $connexion-> query($sql1);
       ///execution 
-      $resultat1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $resultat1 = $statement2->fetchAll(PDO::FETCH_ASSOC);
 
       //la requete pour recuperer les donner sur le diner
       $sql2 = "select * from diner  order by date desc limit 10";
       ///preparation de la requete
-      $statement = $connexion-> query($sql2);
+      $statement3 = $connexion-> query($sql2);
       ///execution 
-      $resultat2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $resultat2 = $statement3->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -47,51 +47,36 @@ $connexion = null; //Supprimer toutes les connexion antereireur
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="sty.css">
+    <link rel="stylesheet" href="style.css">
    
    
     <title>Gestion de DECADE</title>
 </head>
 <body>
-<nav class="navbar bg-body-tertiary">
-  <div id="entete" class="container-fluid">
-    <a class="navbar-brand" href="#">
-    <div>
-    <div>
-    <img src="pPlQ_khM_400x400-removebg-preview.png" alt="Logo" width="70" height="60" class="d-inline-block align-text-top">
-      </div>  
-      <div>
-      <p style="font-size: 27px;">Gestion de DECADE</p>
-      </div>  
-
-    </div>  
-    
-      
-        
-    </a>
-  </div>
-</nav>
+  
+    <?php include('entete.php') ?>
 
     <div class="body">
         <!-- Choix de l'utilisateur-->
-        <div class="choix">
+       <!--  <div class="choix">
 
                 <nav class="nav flex-column">
                     <a class="nav-link active" style="color:white;font-size:20px" aria-current="page" href="#">Accueil</a>
                     <a class="nav-link active" style="color:white;font-size:20px" aria-current="page" href="#">Ajouter</a>
-                    <a class="nav-link active" style="color:white;font-size:20px" aria-current="page" href="#">Ajouter</a>
+                    <a class="nav-link active" style="color:white;font-size:20px" aria-current="page" href="#">Dernier Decade</a>
                     <a class="nav-link active" style="color:white;font-size:20px" aria-current="page" href="#">Evolution</a>
               
                 
                 </nav>
 
-        </div>
+        </div>-->
         <!-- Tableau de decade-->
        
          <div class="tab">
         
          <div class="table_petitD">
-            <h5>Petit Dejener</h5>
+   <h5>  <strong>Petit Dejener</strong></h5>
+
     <table class="table table-light">
    
   <thead>
@@ -111,8 +96,9 @@ $connexion = null; //Supprimer toutes les connexion antereireur
       <td><?php echo $values['NCPetDej']?></td>
       <td><?php echo $values['ValeurPetitDej']?></td>
       <td>
-   <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>     
-   <a href="suppPetitDej.php?id=<?=$values['id_PetDej']?>"><button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></a> 
+    <a href="#"><button type="submit" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>  </a>
+      
+    <a href="suppPetitDej.php?id_PetDej=<?=$values['id_PetDej']?>"><button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>  </a> 
        </td>
     </tr>
     
@@ -123,16 +109,15 @@ $connexion = null; //Supprimer toutes les connexion antereireur
 
 <a href="AjoutPetitDej.php"><button id="bouton" type="submit" class="btn btn-success"> Ajouter Petit Dejener+</button></a>
     </div>
-   
+  
     <div class="table_dejener">
-    <h5> Dejener</h5>
+    <h5>  <strong> Dejener</strong></h5>
     <table class="table table-light">
  
   <thead>
     <tr>
       
       <th scope="col">Nombre de Couvert</th>
-  
       <th scope="col">Valeur</th>
       <th scope="col"></th>
     </tr>
@@ -144,7 +129,9 @@ $connexion = null; //Supprimer toutes les connexion antereireur
       <td><?php echo $values['NCDej']?></td>
       <td><?php echo $values['ValeurDej']?></td>
       <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
-      <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+     
+      <a href="suppDej.php?id_Dej=<?=$values['id_Dej']?>"> <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button> </a>
+
       </td>
    
     </tr>
@@ -159,7 +146,7 @@ $connexion = null; //Supprimer toutes les connexion antereireur
 <a href="AjouterDej.php"><button id="bouton" type="submit" class="btn btn-success">Ajouter Dejener+</button></a>
     </div>
     <div class="table_diner">
-    <h5>Diner</h5>
+    <h5>  <strong> Diner</strong></h5>
     <table class="table table-light">
   
   <thead>
@@ -167,6 +154,7 @@ $connexion = null; //Supprimer toutes les connexion antereireur
   
       <th scope="col">Nombre de Couvert</th>
       <th scope="col">Valeur</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <?php foreach ($resultat2 as $values):?>
@@ -175,8 +163,10 @@ $connexion = null; //Supprimer toutes les connexion antereireur
   
       <td><?php echo $values['NCDiner']?></td>
       <td><?php echo $values['ValeurDiner']?></td>
-      <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
-          <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      <td>
+          <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>  
+          <a href="suppDiner.php?id_diner=<?=$values['id_diner']?>"><button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></a>
+          
       </td>
     
     </tr>
@@ -186,7 +176,10 @@ $connexion = null; //Supprimer toutes les connexion antereireur
   </tbody>
 
 </table>
-<button id="bouton" type="button" class="btn btn-success">Ajouter Diner+</button>
+
+<a href="AjouterDiner.php"><button id="bouton" type="button" class="btn btn-success">Ajouter Diner+</button></a>
+
+
     </div>
    </div>
  </div>
